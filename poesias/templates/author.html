@@ -1,0 +1,22 @@
+{% extends "base_templates/base_ex.html" %}
+
+{% block title %}
+    {{ title }}
+{% endblock %}
+
+{% block header %}
+    <h1>{{ title }}</h1>
+{% endblock %}
+
+{% block content %}
+    <ul>
+        {% for book in books %}
+        <li>
+            <strong>{{ book.title }}</strong><br>
+            Publicado em: {{ book.published_date }}<br>
+            ISBN: {{ book.isbn }}<br>
+            <img src="{{ book.cover.url }}" alt="Capa do Livro {{ book.title }}">
+        </li>
+        {% endfor %}
+    </ul>
+{% endblock %}

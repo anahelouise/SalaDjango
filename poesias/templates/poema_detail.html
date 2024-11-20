@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ poetry.title }}</title>
+    <link rel="stylesheet" href="{% static 'poesias/css/poetry_detail.css' %}">
+</head>
+<body>
+    <div class="poetry-container">
+        <h1>{{ poetry.title }}</h1>
+        <p>Por: {{ poetry.author.first_name }} {{ poetry.author.last_name }}</p>
+        <p>Gênero: {{ poetry.genre.name }}</p>
+        <img src="{{ poetry.cover.url }}" alt="{{ poetry.title }}">
+        {% if poetry.is_popular %}
+            <p>Esta poesia é popular!</p>
+        {% endif %}
+        <p>{{ poetry.full_text }}</p>
+    </div>
+</body>
+</html>

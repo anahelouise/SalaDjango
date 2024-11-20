@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buscar Poesia</title>
+    <link rel="stylesheet" href="{% static 'poesias/css/style.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+    {% include 'base_templates/header.html' %}
+    <!--
+    <div class="search-section">
+        <div class="wrapper">
+            <form action="{% url 'search' %}" method="GET" class="search-form">
+                <input type="search" name="query" placeholder="Buscar autor..." required>
+                <button type="submit"><i class="fas fa-search"></i></button>
+            </form>
+        </div>
+    </div>-->
+
+    <div class="results-section">
+        <h2>{{ first }}</h2>
+        
+        {% if authors %}
+            <h3>Autores Encontrados:</h3>
+            <ul>
+                {% for author in authors %}
+                    <li>{{ author.name }}</li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>Nenhum autor encontrado.</p>
+        {% endif %}
+
+        {% if books %}
+            <h3>Livros do Autor:</h3>
+            <ul>
+                {% for book in books %}
+                    <li>
+                        <strong>{{ book.title }}</strong> - Publicado em: {{ book.published_date }}
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>Nenhum livro encontrado para este autor.</p>
+        {% endif %}
+    </div>
+
+    {% include 'base_templates/footer.html' %}
+</body>
+</html>

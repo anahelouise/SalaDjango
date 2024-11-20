@@ -1,0 +1,29 @@
+​<!DOCTYPE html>
+{% load static %}
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ana Helouise</title>
+    <link rel="stylesheet" href="{% static 'poesias/css/ana.css' %}">
+</head>
+<body>
+    <header>
+        <h1>Ana Helouise</h1>
+    </header>
+    <main>
+        <section class="profile">
+            <h2>Sobre mim</h2>
+            <img src="{% static 'poesias/images/foto1.jpeg' %}" alt="Foto de Ana Helouise de Souza Silva">
+            <p>Graduanda em Sistemas de Informação</p>
+        </section>
+        <section class="profile">
+            <h2>Bem vindo a minha página FEPI</h2>
+            <img src="{% static 'poesias/images/foto2.jpg' %}" alt="Imagem do campus da Fepi">
+        </section>
+    </main>
+    <footer>
+        <p>© 2024 Ana Helouise</p>
+    </footer>
+</body>
+</html>
